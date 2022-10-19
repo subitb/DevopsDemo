@@ -1,5 +1,5 @@
 ---
-_schema-version: '3.13'
+_schema-version: '3.14'
 ID: bookshop
 version: 1.0.6
 description: "A simple CAP project."
