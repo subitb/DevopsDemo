@@ -1,17 +1,17 @@
-_schema-version: '3.20'
-ID: bookshop
-version: 1.0.7
-description: A simple CAP project.
+---
+_schema-version: '3.1'
+ID: CAPdemo
+version: 1.0.0
+description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
 build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
         - npx -p @sap/cds-dk cds build --production
 modules:
-  - name: bookshop-srv
+  - name: CAPdemo-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -19,18 +19,7 @@ modules:
     build-parameters:
       builder: npm-ci
     provides:
-      - name: srv-api
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
-          srv-url: '${default-url}'
-    requires:
-      - name: bookshop-uaa
-resources:
-  - name: bookshop-uaa
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: ./xs-security.json
-      config:
-        xsappname: 'bookshop-${org}-${space}'
-        tenant-mode: dedicated
+          srv-url: ${default-url}
+    requires: []

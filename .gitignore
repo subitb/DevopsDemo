@@ -1,6 +1,7 @@
-# CAP bookshop
+# CAP CAPdemo
 _out
 *.db
+*.sqlite
 connection.properties
 default-*.json
 .cdsrc-private.json
