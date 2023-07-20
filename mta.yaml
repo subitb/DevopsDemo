@@ -1,6 +1,6 @@
 ---
 _schema-version: '3.1'
-ID: CAPdemo
+ID: capqq
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -11,7 +11,7 @@ build-parameters:
       commands:
         - npx -p @sap/cds-dk cds build --production
 modules:
-  - name: CAPdemo-srv
+  - name: capqq-srv
     type: nodejs
     path: gen/srv
     parameters:
